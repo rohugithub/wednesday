@@ -23,7 +23,7 @@ tl.from("#nav h1,  #nav h3, #nav i, #nav h4, #nav button",{
     y:20,
     duration:0.3
 })
-.from("#page1 img",{
+.from("#page1>img",{
     scale:0.7,
     opacity:0,
     duration:0.8
@@ -34,7 +34,8 @@ var tl2 = gsap.timeline({
         trigger:"#page2 h1",
         scroller:"body",
         //markers:true,
-        start:"top 80%"
+        start:"top 80%",
+        //scrub:3
     }
 })
 tl2.from("#page2 h1",{
@@ -55,7 +56,7 @@ gsap.from(".elem",{
         scroller:"body",
        // markers:true,
         start:"top 70%",
-        // scrub:5
+        //scrub:3
     }
 })
 
@@ -124,7 +125,8 @@ var tl6=gsap.timeline({
         trigger:"#page6 ",
         scroller:"body",
         //markers:true,
-        start:"top 80%"
+        start:"top 80%",
+        //scrub:2
     }
 })
 .from("#page6",{
@@ -134,3 +136,22 @@ var tl6=gsap.timeline({
     duration:.5,
     // scale:.5
 })
+
+
+var main = document.querySelector("#main")
+  var cursor=document.querySelector("#cursor")
+var h1=document.querySelector("#center>h1")
+
+  main.addEventListener("mousemove",function(dets){
+    cursor.style.left = `${dets.x}px`
+    cursor.style.top = `${dets.y}px`
+  })
+   
+  h1.addEventListener("mouseenter",()=>{
+    cursor.style.scale=2.5
+    
+  })
+
+  h1.addEventListener("mouseleave",()=>{
+    cursor.style.scale=1
+  })
